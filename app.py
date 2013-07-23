@@ -11,6 +11,6 @@ root.putChild("results", index)  # Let Api handler process /api
 SERVER_PORT = 9000
 
 factory = Site(root)
-reactor.listenTCP(SERVER_PORT, factory)
+reactor.listenTCP(SERVER_PORT, factory, interface="localhost")
 reactor.run()
 print "Listening on port: " + str(SERVER_PORT)
