@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="ansible-executor">
 <head>
   <title>
     Main Page
@@ -22,27 +22,35 @@
       </form>
       <div id="resultsBox">
       </div>
-      <div class="hintbox">
+      <div class="hintbox" ng-controller="InventoryCtrl">
         <h4>Hosts</h4><br>
-        <ul class="hintlist" id="hostlist">
-          Loading...
+        <ul class="hintlist" id="hostlist"  >
+          <li ng-repeat="name in hosts">{{ name }}</li>
         </ul>
       </div>
-      <div class="hintbox">
+      <div class="hintbox" ng-controller="InventoryCtrl">
         <h4>Groups</h4><br>
-        <ul class="hintlist" id="grouplist">
-          Loading...
+        <ul class="hintlist" id="grouplist" >
+          <li ng-repeat="name in groups">{{ name }}</li>
         </ul>
       </div>
-      <div class="hintbox">
+      <div class="hintbox" ng-controller="ModuleCtrl">
         <h4>Modules</h4><br>
-        <ul class="hintlist" id="modulelist">
+        <span class="filter">
+        	<label >Filter: </label>
+        	<input type="text" ng-model="module_filter"/>
+        </span>
+        <ul class="hintlist" id="modulelist" >
+        	<li ng-repeat="module in modules | filter:module_filter">{{ module }}</li>
         </ul>
       </div>
     </div>
 
   </div>
+  
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
-  <script src="/js/executioner.js"></script>
+  <script src="/js/angular.js"></script>
+  <script src="/js/app.js"></script>
+  <!--  script src="/js/executioner.js"></script>  -->
 </body>
 </html>
