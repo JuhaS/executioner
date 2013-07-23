@@ -26,15 +26,17 @@
   </script> 
 
   <script type="text/ng-template" id="/runcmd.html">
-      <form method="get"  id="runCommandForm" ng-submit="submitRunnable()">
-        <label>Hosts/Groups: </label>
-        <input type="text" id="hostsInput" value="" ng-model="runnable.hosts"></input>
-        <label>Module: </label>
-        <input type="text" value="" id="moduleInput" ng-model="runnable.module"></input>
-        <label>Attr: </label>
-        <input type="text" id="attrInput" value="" ng-model="runnable.attr"></input>
-        <input type="submit" value="Run" ></input>
-      </form>
+      <div id="formContainer">
+	  	<form method="get"  id="runCommandForm" ng-submit="submitRunnable()">
+	        <label>Hosts/Groups: </label>
+        	<input type="text" id="hostsInput" value="" ng-model="runnable.hosts"></input>
+        	<label>Module: </label>
+        	<input type="text" value="" id="moduleInput" ng-model="runnable.module"></input>
+        	<label>Attr: </label>
+        	<input type="text" id="attrInput" value="" ng-model="runnable.attr"></input>
+        	<input type="submit" value="Run" ></input>
+      	</form>
+	  </div>
 
       <div class="hintbox" ng-controller="InventoryCtrl">
         <h4>Hosts</h4><br>

@@ -125,3 +125,9 @@ h4 {
 #attrInput {
 	width:90px;
 }
+
+#formContainer {
+	margin-left:10px;
+	margin-bottom:10px;
+	margin-top:10px;
+}
