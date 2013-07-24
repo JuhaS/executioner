@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+
 from twisted.web.static import File
 from twisted.web.server import Site
 from twisted.internet import reactor
@@ -9,8 +11,9 @@ root.putChild("api", ExecutionerApiHandler())  # Let Api handler process /api
 root.putChild("results", index)  # Let Api handler process /api
 
 SERVER_PORT = 9000
+BIND_ADDR = "localhost"
 
 factory = Site(root)
-reactor.listenTCP(SERVER_PORT, factory, interface="localhost")
+reactor.listenTCP(SERVER_PORT, factory, interface=BIND_ADDR)
+print "Listening on url: http://" + BIND_ADDR + ":" + str(SERVER_PORT) + "/"
 reactor.run()
-print "Listening on port: " + str(SERVER_PORT)
